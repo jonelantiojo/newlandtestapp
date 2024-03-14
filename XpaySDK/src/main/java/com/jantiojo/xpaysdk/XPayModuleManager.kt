@@ -1,15 +1,15 @@
 package com.jantiojo.xpaysdk
 
 import android.content.Context
-import com.jantiojo.utils.toArrayLEDColor
+import com.jantiojo.xpaysdk.module.XPayBeeper
+import com.jantiojo.xpaysdk.module.led.XPayLED
+import com.jantiojo.xpaysdk.module.XPayModule
+import com.jantiojo.xpaysdk.module.card.XPayCardReader
 import com.newland.nsdk.core.api.common.ErrorCode
-import com.newland.nsdk.core.api.common.ModuleType
 import com.newland.nsdk.core.api.common.exception.NSDKException
 import com.newland.nsdk.core.api.common.utils.LogLevel
 import com.newland.nsdk.core.api.common.utils.NativeDebugLevel
 import com.newland.nsdk.core.api.internal.NSDKModuleManager
-import com.newland.nsdk.core.api.internal.beeper.Beeper
-import com.newland.nsdk.core.api.internal.led.LED
 import com.newland.nsdk.core.internal.NSDKModuleManagerImpl
 
 /**
@@ -43,31 +43,25 @@ class XPayModuleManager(private val context: Context) : XPayModuleProvider {
         moduleManager.destroy()
     }
 
-    override fun playSound(frequency: Int, duration: Int) {
-        val beeper = moduleManager.getModule(ModuleType.BEEPER) as Beeper
-        try {
-            beeper.beep(frequency, duration)
-        } catch (e: NSDKException) {
-            e.printStackTrace()
-            //Add Error Listener Here
+    override fun getXPayModule(xPayModuleType: XPayModuleType): XPayModule {
+        return when (xPayModuleType) {
+            XPayModuleType.LED -> XPayLED()
+            XPayModuleType.BEEPER -> XPayBeeper()
+            XPayModuleType.CARD_READER -> XPayCardReader()
+            XPayModuleType.CRYPTO -> TODO()
+            XPayModuleType.KEY_MANAGER -> TODO()
+            XPayModuleType.PIN_ENTRY -> TODO()
+            XPayModuleType.DEVICE_MANAGER -> TODO()
+            XPayModuleType.PRINTER -> TODO()
+            XPayModuleType.BARCODE_DECODER -> TODO()
+            XPayModuleType.ROUTE_MANAGER -> TODO()
+            XPayModuleType.SETTINGS -> TODO()
+            XPayModuleType.EMV_L2_SERVICE -> TODO()
+            XPayModuleType.CASH_BOX -> TODO()
+            XPayModuleType.FUTUREX -> TODO()
+            XPayModuleType.ETHERNET_MANAGER -> TODO()
+            XPayModuleType.SERIAL_PORT_MANAGER -> TODO()
         }
     }
 
-    override fun blinkLED(ledColor: List<XpayLEDColor>, blinkCount: Int, timeInterval: Int) {
-        val led = moduleManager.getModule(ModuleType.LED) as LED
-        try {
-            led.blink(
-                ledColor.toArrayLEDColor(),
-                blinkCount,
-                timeInterval
-            )
-        } catch (e: NSDKException) {
-            e.printStackTrace()
-            //Add Error Listener Here
-        }
-    }
-
-    override fun controlLEDState(ledColor: XpayLEDColor, ledState: XpayLEDState) {
-        val led = moduleManager.getModule(ModuleType.LED) as LED
-    }
 }

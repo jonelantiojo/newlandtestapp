@@ -1,4 +1,4 @@
-package com.jantiojo.xpaysdk
+package com.jantiojo.xpaysdk.module.led
 
 enum class XpayLEDState {
     ON,
