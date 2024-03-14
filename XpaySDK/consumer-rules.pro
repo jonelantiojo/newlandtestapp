@@ -1,0 +1,4 @@
+-keep class com.newland.nsdk.*{*;}
+-keep class com.newland.nsdk.**{*;}
+-keep class android.newland.*{*;}
+-keep class android.newland.**{*;}
