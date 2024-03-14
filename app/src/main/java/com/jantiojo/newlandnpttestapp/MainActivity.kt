@@ -12,15 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.jantiojo.newlandnpttestapp.ui.theme.NewlandNPTTestAppTheme
 import com.jantiojo.xpaysdk.XPayModuleManager
+import com.jantiojo.xpaysdk.XPaySDKAppContainer
 
 class MainActivity : ComponentActivity() {
 
-    private val xPayModuleManager by lazy { XPayModuleManager(this) }
+    private val xPaySDKAppContainer by lazy { XPaySDKAppContainer(XPayModuleManager()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            xPayModuleManager.setup()
+            xPaySDKAppContainer.setupXPayProvider(this)
             NewlandNPTTestAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        xPayModuleManager.close()
+        xPaySDKAppContainer.closeXPayProvider()
     }
 }
 

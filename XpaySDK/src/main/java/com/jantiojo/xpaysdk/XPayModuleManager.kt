@@ -15,13 +15,13 @@ import com.newland.nsdk.core.internal.NSDKModuleManagerImpl
 /**
  * implementation class to share with other clients or entity
  */
-class XPayModuleManager(private val context: Context) : XPayModuleProvider {
+class XPayModuleManager : XPayModuleProvider {
 
     private val moduleManager: NSDKModuleManager by lazy {
         NSDKModuleManagerImpl.getInstance()
     }
 
-    override fun setup() {
+    override fun setup(context: Context) {
         moduleManager.setDebugMode(LogLevel.VERBOSE)
 
         try {
