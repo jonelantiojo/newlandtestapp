@@ -4,6 +4,8 @@ import android.content.Context
 import com.jantiojo.xpaysdk.module.XPayBeeper
 import com.jantiojo.xpaysdk.module.led.XPayLED
 import com.jantiojo.xpaysdk.module.XPayModule
+import com.jantiojo.xpaysdk.module.barcode.XPayBarcodeDecoder
+import com.jantiojo.xpaysdk.module.barcode.XPayBarcodeScanner
 import com.jantiojo.xpaysdk.module.card.XPayCardReader
 import com.newland.nsdk.core.api.common.ErrorCode
 import com.newland.nsdk.core.api.common.exception.NSDKException
@@ -53,7 +55,7 @@ class XPayModuleManager : XPayModuleProvider {
             XPayModuleType.PIN_ENTRY -> TODO()
             XPayModuleType.DEVICE_MANAGER -> TODO()
             XPayModuleType.PRINTER -> TODO()
-            XPayModuleType.BARCODE_DECODER -> TODO()
+            XPayModuleType.BARCODE_DECODER -> XPayBarcodeDecoder()
             XPayModuleType.ROUTE_MANAGER -> TODO()
             XPayModuleType.SETTINGS -> TODO()
             XPayModuleType.EMV_L2_SERVICE -> TODO()
@@ -61,6 +63,7 @@ class XPayModuleManager : XPayModuleProvider {
             XPayModuleType.FUTUREX -> TODO()
             XPayModuleType.ETHERNET_MANAGER -> TODO()
             XPayModuleType.SERIAL_PORT_MANAGER -> TODO()
+            XPayModuleType.BARCODE_SCANNER -> XPayBarcodeScanner()
         }
     }
 

@@ -104,7 +104,7 @@ internal fun MagCardInfo.toXPayMagCardInfo(): XPayMagCardInfo {
     )
 }
 
-internal fun ActivationResult.toXPayMagCardInfo(): XPayActivationResult {
+internal fun ActivationResult.toXPayActivationResult(): XPayActivationResult {
     return XPayActivationResult(
         uid,
         atqa,
