@@ -1,0 +1,25 @@
+package com.jantiojo.xpaysdk.module.crypto
+
+enum class XPayMACType {
+    TDES_LAST,
+    TDES_X99,
+    TDES_X919,
+    TDES_UNIONPAY_ECB,
+    DUKPT_LAST,
+    DUKPT_X99,
+    DUKPT_X919,
+    DUKPT_UNIONPAY_ECB,
+    DUKPT_RESP_LAST,
+    DUKPT_RESP_X99,
+    DUKPT_RESP_X919,
+    DUKPT_RESP_UNIONPAY_ECB,
+    AES_LAST,
+    AES_X99,
+    AES_DUKPT_LAST,
+    AES_DUKPT_X99,
+    AES_DUKPT_X919,
+    AES_DUKPT_UNIONPAY_ECB,
+    SM4_LAST,
+    SM4_X99,
+    SM4_UNIONPAY_ECB
+}

@@ -2,11 +2,14 @@ package com.jantiojo.xpaysdk
 
 import android.content.Context
 import com.jantiojo.xpaysdk.module.XPayBeeper
+import com.jantiojo.xpaysdk.module.XPayCashBox
 import com.jantiojo.xpaysdk.module.led.XPayLED
 import com.jantiojo.xpaysdk.module.XPayModule
 import com.jantiojo.xpaysdk.module.barcode.XPayBarcodeDecoder
 import com.jantiojo.xpaysdk.module.barcode.XPayBarcodeScanner
 import com.jantiojo.xpaysdk.module.card.XPayCardReader
+import com.jantiojo.xpaysdk.module.crypto.XPayCrypto
+import com.jantiojo.xpaysdk.module.device.XPayDeviceManager
 import com.newland.nsdk.core.api.common.ErrorCode
 import com.newland.nsdk.core.api.common.exception.NSDKException
 import com.newland.nsdk.core.api.common.utils.LogLevel
@@ -50,20 +53,24 @@ class XPayModuleManager : XPayModuleProvider {
             XPayModuleType.LED -> XPayLED()
             XPayModuleType.BEEPER -> XPayBeeper()
             XPayModuleType.CARD_READER -> XPayCardReader()
-            XPayModuleType.CRYPTO -> TODO()
+            XPayModuleType.CRYPTO -> XPayCrypto()
             XPayModuleType.KEY_MANAGER -> TODO()
             XPayModuleType.PIN_ENTRY -> TODO()
-            XPayModuleType.DEVICE_MANAGER -> TODO()
+            XPayModuleType.DEVICE_MANAGER -> XPayDeviceManager()
             XPayModuleType.PRINTER -> TODO()
             XPayModuleType.BARCODE_DECODER -> XPayBarcodeDecoder()
             XPayModuleType.ROUTE_MANAGER -> TODO()
             XPayModuleType.SETTINGS -> TODO()
             XPayModuleType.EMV_L2_SERVICE -> TODO()
-            XPayModuleType.CASH_BOX -> TODO()
+            XPayModuleType.CASH_BOX -> XPayCashBox()
             XPayModuleType.FUTUREX -> TODO()
             XPayModuleType.ETHERNET_MANAGER -> TODO()
             XPayModuleType.SERIAL_PORT_MANAGER -> TODO()
             XPayModuleType.BARCODE_SCANNER -> XPayBarcodeScanner()
+            XPayModuleType.ANALOG_SERIAL -> TODO()
+            XPayModuleType.DEVICE_STATISTICS_MANAGER -> TODO()
+            XPayModuleType.RECOVERY -> TODO()
+            XPayModuleType.BOOT_PROVIDER -> TODO()
         }
     }
 

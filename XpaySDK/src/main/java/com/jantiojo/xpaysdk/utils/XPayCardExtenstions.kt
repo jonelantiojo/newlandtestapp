@@ -27,6 +27,15 @@ internal fun XPayCardSlot.toNewLandCardSlot() = when (this) {
     XPayCardSlot.SAM4 -> ContactCardSlot.SAM4
 }
 
+internal fun ContactCardSlot.toXPayCardSlot() = when (this) {
+    ContactCardSlot.IC1 -> XPayCardSlot.IC1
+    ContactCardSlot.IC2 -> XPayCardSlot.IC2
+    ContactCardSlot.SAM1 -> XPayCardSlot.SAM1
+    ContactCardSlot.SAM2 -> XPayCardSlot.SAM2
+    ContactCardSlot.SAM3 -> XPayCardSlot.SAM3
+    ContactCardSlot.SAM4 -> XPayCardSlot.SAM4
+}
+
 internal fun List<XPayCardType>.toNewLandCardType(): Array<CardType> {
     return this.map {
         val cardType = when (it) {
