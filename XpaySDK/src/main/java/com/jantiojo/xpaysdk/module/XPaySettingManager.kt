@@ -3,7 +3,6 @@ package com.jantiojo.xpaysdk.module
 import com.newland.nsdk.core.api.common.ModuleType
 import com.newland.nsdk.core.api.common.exception.NSDKException
 import com.newland.nsdk.core.api.internal.setting.SettingsManager
-import com.newland.nsdk.core.internal.NSDKModuleManagerImpl
 
 
 class XPaySettingManager : XPayModule() {

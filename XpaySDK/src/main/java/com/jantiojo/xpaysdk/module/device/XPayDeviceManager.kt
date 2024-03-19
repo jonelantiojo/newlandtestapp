@@ -14,7 +14,6 @@ class XPayDeviceManager : XPayModule() {
 
     private val deviceManager by lazy { xPayModuleManager.getModule(ModuleType.DEVICE_MANAGER) as DeviceManager }
 
-
     fun setPOSDate(posDate: Date) {
         try {
             deviceManager.posDate = posDate

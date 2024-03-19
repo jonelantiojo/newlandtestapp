@@ -82,7 +82,7 @@ internal fun XPayCipherType.toNewLandMACType(): CipherType {
     }
 }
 
-internal fun XPayPaddingMode.toNewLandMACType(): PaddingMode {
+internal fun XPayPaddingMode.toNewLandPaddingMode(): PaddingMode {
     return when (this) {
         XPayPaddingMode.NONE -> PaddingMode.NONE
         XPayPaddingMode.PKCS7 -> PaddingMode.PKCS7
@@ -160,3 +160,4 @@ internal fun XPayAsymAlgorithmParameters.toNewLandAsymmetricKey(): AsymAlgorithm
     asymmetricKey.messageDigestType = this.messageDigestType.toNewLandMessageDigestType()
     return asymmetricKey
 }
+

@@ -6,5 +6,8 @@ open class XPaySymmetricKey(
     open val keyType: XPayKeyType,
     open val keyUsage: XPayKeyUsage,
     open val kcv : ByteArray,
-    open val kcvMode : XPayKCVMode
-)
+    open val kcvMode : XPayKCVMode,
+    override val keyLen: Int,
+    override val keyID: Byte,
+    override val keyData: ByteArray
+) : XPayKey()
