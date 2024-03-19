@@ -8,13 +8,18 @@ import com.jantiojo.xpaysdk.module.XPayModule
 import com.jantiojo.xpaysdk.module.XPaySettingManager
 import com.jantiojo.xpaysdk.module.barcode.XPayBarcodeDecoder
 import com.jantiojo.xpaysdk.module.barcode.XPayBarcodeScanner
+import com.jantiojo.xpaysdk.module.bootprovider.XPayBootProvider
 import com.jantiojo.xpaysdk.module.card.XPayCardReader
 import com.jantiojo.xpaysdk.module.crypto.XPayCrypto
 import com.jantiojo.xpaysdk.module.device.XPayDeviceManager
+import com.jantiojo.xpaysdk.module.devicestatisticsmanager.XPayDeviceStatisticsManager
+import com.jantiojo.xpaysdk.module.ethernetmanager.XPayEthernetManager
 import com.jantiojo.xpaysdk.module.keymanager.XPayKeyManager
 import com.jantiojo.xpaysdk.module.pinentry.XPayPINEntry
 import com.jantiojo.xpaysdk.module.printer.XPayPrinter
+import com.jantiojo.xpaysdk.module.recovery.XPayRecovery
 import com.jantiojo.xpaysdk.module.routemanager.XPayRouteManager
+import com.jantiojo.xpaysdk.module.serialportmanager.XPaySerialPortManager
 import com.newland.nsdk.core.api.common.ErrorCode
 import com.newland.nsdk.core.api.common.exception.NSDKException
 import com.newland.nsdk.core.api.common.utils.LogLevel
@@ -66,15 +71,13 @@ class XPayModuleManager : XPayModuleProvider {
             XPayModuleType.BARCODE_DECODER -> XPayBarcodeDecoder()
             XPayModuleType.ROUTE_MANAGER -> XPayRouteManager()
             XPayModuleType.SETTINGS -> XPaySettingManager()
-            XPayModuleType.EMV_L2_SERVICE -> TODO()
             XPayModuleType.CASH_BOX -> XPayCashBox()
-            XPayModuleType.ETHERNET_MANAGER -> TODO()
-            XPayModuleType.SERIAL_PORT_MANAGER -> TODO()
+            XPayModuleType.ETHERNET_MANAGER -> XPayEthernetManager()
+            XPayModuleType.SERIAL_PORT_MANAGER -> XPaySerialPortManager()
             XPayModuleType.BARCODE_SCANNER -> XPayBarcodeScanner()
-            XPayModuleType.ANALOG_SERIAL -> TODO()
-            XPayModuleType.DEVICE_STATISTICS_MANAGER -> TODO()
-            XPayModuleType.RECOVERY -> TODO()
-            XPayModuleType.BOOT_PROVIDER -> TODO()
+            XPayModuleType.DEVICE_STATISTICS_MANAGER -> XPayDeviceStatisticsManager()
+            XPayModuleType.RECOVERY -> XPayRecovery()
+            XPayModuleType.BOOT_PROVIDER -> XPayBootProvider()
         }
     }
 
