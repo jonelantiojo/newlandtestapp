@@ -14,7 +14,6 @@ enum class XPayModuleType {
     SETTINGS,
     EMV_L2_SERVICE,
     CASH_BOX,
-    FUTUREX,
     ETHERNET_MANAGER,
     SERIAL_PORT_MANAGER,
     BARCODE_SCANNER,
