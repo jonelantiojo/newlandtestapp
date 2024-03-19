@@ -13,6 +13,7 @@ import com.jantiojo.xpaysdk.module.crypto.XPayCrypto
 import com.jantiojo.xpaysdk.module.device.XPayDeviceManager
 import com.jantiojo.xpaysdk.module.keymanager.XPayKeyManager
 import com.jantiojo.xpaysdk.module.pinentry.XPayPINEntry
+import com.jantiojo.xpaysdk.module.printer.XPayPrinter
 import com.newland.nsdk.core.api.common.ErrorCode
 import com.newland.nsdk.core.api.common.exception.NSDKException
 import com.newland.nsdk.core.api.common.utils.LogLevel
@@ -60,7 +61,7 @@ class XPayModuleManager : XPayModuleProvider {
             XPayModuleType.KEY_MANAGER -> XPayKeyManager()
             XPayModuleType.PIN_ENTRY -> XPayPINEntry()
             XPayModuleType.DEVICE_MANAGER -> XPayDeviceManager()
-            XPayModuleType.PRINTER -> TODO()
+            XPayModuleType.PRINTER -> XPayPrinter()
             XPayModuleType.BARCODE_DECODER -> XPayBarcodeDecoder()
             XPayModuleType.ROUTE_MANAGER -> TODO()
             XPayModuleType.SETTINGS -> XPaySettingManager()
